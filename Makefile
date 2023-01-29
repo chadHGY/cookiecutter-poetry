@@ -75,6 +75,20 @@ docs-test: ## Test if documentation can be built without warnings or errors
 docs: ## Build and serve the documentation
 	@mkdocs serve
 
+.PHONY: pip
+pip: ## prepare pip dependencies stup.py & requirements.txt 
+	@poetry run poetry2setup > setup.py
+	@poetry export -f requirements.txt -o requirements.txt
+
+.PHONY: pip-install
+pip-install: ## install package with pip locally
+	@poetry run poetry2setup > setup.py
+	@poetry export -f requirements.txt -o requirements.txt
+	@poetry run pip install -e .
+
+
+
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
