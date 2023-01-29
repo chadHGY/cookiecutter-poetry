@@ -7,7 +7,7 @@ repository = "https://github.com/{{cookiecutter.author_github_handle}}/{{cookiec
 documentation = "https://{{cookiecutter.author_github_handle}}.github.io/{{cookiecutter.project_name}}/"
 readme = "README.md"
 packages = [
-  {include = "{{cookiecutter.project_slug}}"}
+  {include = "{{cookiecutter.project_slug}}", from = "src"}
 ]
 
 [tool.poetry.dependencies]
@@ -42,7 +42,7 @@ target-version = ['py37']
 preview = true
 
 [tool.mypy]
-files = ["{{cookiecutter.project_slug}}"]
+files = ["src/{{cookiecutter.project_slug}}"]
 disallow_untyped_defs = "True"
 disallow_any_unimported = "True"
 no_implicit_optional = "True"

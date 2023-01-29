@@ -25,7 +25,7 @@ sdist/
 var/
 wheels/
 share/python-wheels/
-*.egg-info/
+/src/*.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
@@ -54,6 +54,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+.ruff_cache
 
 # Translations
 *.mo
